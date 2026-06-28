@@ -3,12 +3,15 @@ provider "aws" {
 region = var.aws_region
 }
  
-resource "aws_s3_bucket" "my_first_bucket" {
-bucket = var.bucket_name
+module "s3" {
+source = "./modules/s3"
+bucket_name =var.bucket_name
 }
 
-resource "aws_instance" "my_first_ec2" {
-ami= var.ami_id
+module "ec2" {
+source = "./modules/ec2"
+ami_id = var.ami_id
 instance_type = var.instance_type
 }
+
 

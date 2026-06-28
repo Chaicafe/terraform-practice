@@ -5,6 +5,8 @@ backend "s3" {
 bucket = "jenny-terraform-state-2026"
 key = "terraform-practice/terraform.tfstate"
 region = "us-east-1"
+dynamodb_table = "terraform-state-lock"
+encrypt = true
 }
 }
 
